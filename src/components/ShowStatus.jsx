@@ -30,17 +30,6 @@ export const ShowStatus = ({ show }) =>{
     //     console.log(show.ticketPrice);
     //   };
 
-    const handleClick = (e)  => {
-    if (!selectedItems.includes(e.target.id)) {
-      selectedItems.push(e.target.id);
-    //   document.getElementById(e.target.id).style.backgroundColor = "red";
-      //console.log(e.target.id);
-    } else {
-      selectedItems.pop(e.target.id);
-    //   document.getElementById(e.target.id).style.backgroundColor =
-        // "rgb(219, 219, 219)";
-    }
-}
     
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -76,16 +65,7 @@ export const ShowStatus = ({ show }) =>{
         //           )}
         //         </div>
 
-        <div id="cnfBooking" style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "white",
-            padding: "20px",
-            boxShadow: "0 2px 10px #ccc",
-            borderRadius: "10px"
-        }}>
+        <div id="cnfBooking">
 
             <p>Number of Seats Booked: {selectedItems.length}</p>
 

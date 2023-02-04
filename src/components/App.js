@@ -9,6 +9,7 @@ import Nav from "./Nav";
 import { Image } from "./Image";
 import { BusDetails } from "./BusDetails";
 import { BusCard } from "./BusCard";
+import { ShowStatus } from "./ShowStatus";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
           }
         />
         <Route path="BusDetails/BusCard" element={<BusCard show={show} />} />
+        <Route path="BusDetails/BusCard/ShowStatus" element={<ShowStatus show={show} />} />
       </Routes>
     </div>
   );
