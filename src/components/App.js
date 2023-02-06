@@ -20,10 +20,14 @@ const App = () => {
   const [data2, setData2] = useState([]);
   const [filter, setFilter] = useState([]);
   const [show, setShow] = useState({});
+  const [selectedItems, setSelectedItems] = useState([]);
+  
 
   return (
     <div id="main">
       <Nav />
+      <div id="forBG">
+
       <div id="main-duplicate">
         <Source message={message} setMessage={setMessage} />
         <Swap
@@ -45,6 +49,10 @@ const App = () => {
           setData2={setData2}
           setFilter={setFilter}
         />
+        {/* <ShowStatus
+          count={selectedItems}
+          // selectedItems={setSelectedItems}
+        /> */}
       </div>
       <Routes>
         <Route path="/" element={<Image />} />
@@ -63,6 +71,7 @@ const App = () => {
         <Route path="BusDetails/BusCard/ShowStatus" element={<ShowStatus show={show} />} />
       </Routes>
     </div>
+      </div>
   );
 };
 

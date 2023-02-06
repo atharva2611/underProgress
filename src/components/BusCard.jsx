@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShowStatus } from "./ShowStatus";
+
+
 export const BusCard = ({ show }) => {
   // const [ticketPrice, setTicketPrice] = useState(
   //   localStorage.getItem("ticketPrice")
   // );
-  // const [showPopup, setShowPopup] = useState(false);
+
+  let count = 0;
   const [selectedItems, setSelectedItems] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+  // const count = selectedItems.length;
 
   const handleButtonClick = () => {
+    
     setShowPopup(true);
+    // navigate("ShowStatus");
     navigate("ShowStatus");
   };
+
 
   // const handleClosePopup = () => {
   //   setShowPopup(false);
@@ -33,6 +41,7 @@ export const BusCard = ({ show }) => {
     console.log(selectedItems);
     console.log(selectedItems.length);
   };
+
 
 
   return (
@@ -280,7 +289,13 @@ export const BusCard = ({ show }) => {
                   <div id="payment"><button >Proceed to Payment</button></div>
                   <button onClick={handleClosePopup}>Close</button>
                 </div>
-              )} */}
+               )}  */}
+          {/* <div>
+            <ShowStatus
+                count={selectedItems}
+            />
+
+          </div> */}
             </div>
           </div>
         </div>

@@ -1,18 +1,22 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
-// import { useState } from "react";
+// import { BusCard } from "./BusCard";
 import "../styles/App.css";
 
-export const ShowStatus = ({ show }) =>{
+export const ShowStatus = ({show}) =>{
 
+    console.log("this is props.", show);
     const [selectedItems, setSelectedItems] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
 
-    // const handleButtonClick = () => {
-    //     setShowPopup(true);
+    // const count =  selectedItems;
+    // setSelectedItems(count);
 
-    // };
+    const handleButtonClick = () => {
+        setShowPopup(true);
+
+    };
 
     // const handleClick = (e) => {
     //     if (!selectedItems.includes(e.target.id)) {
@@ -25,14 +29,14 @@ export const ShowStatus = ({ show }) =>{
     //         // "rgb(219, 219, 219)";
     //       //console.log(e.target.id);
     //     }
-    //     console.log(selectedItems);
-    //     console.log(selectedItems.length);
-    //     console.log(show.ticketPrice);
+    //     // console.log(selectedItems);
+    //     // console.log(selectedItems.length);
+    //     // console.log(show.ticketPrice);
     //   };
 
     
     const handleClosePopup = () => {
-        setShowPopup(false);
+        // setShowPopup(false);
         navigate("/");
     };
 
@@ -43,28 +47,6 @@ export const ShowStatus = ({ show }) =>{
 
 
     return (
-        // <div id="book-ticket">
-        //           <button onClick={handleButtonClick}>Book Ticket </button>
-        //           {showPopup && (
-        //             <div id="cnfBooking" style={{
-        //               position: "fixed",
-        //               top: "50%",
-        //               left: "50%",
-        //               transform: "translate(-50%, -50%)",
-        //               background: "white",
-        //               padding: "20px",
-        //               boxShadow: "0 2px 10px #ccc",
-        //               borderRadius: "10px"}}>
-
-        //               <p>Number of Seats Booked: {selectedItems.length}</p>
-
-        //               <p>Price : Rs. {selectedItems.length*show.ticketPrice} </p>
-        //               <div id="payment"><button >Proceed to Payment</button></div>
-        //               <button onClick={handleClosePopup}>Close</button>
-        //             </div>
-        //           )}
-        //         </div>
-
         <div id="cnfBooking">
 
             <p>Number of Seats Booked: {selectedItems.length}</p>

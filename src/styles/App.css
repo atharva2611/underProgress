@@ -7,7 +7,10 @@
 #main-duplicate {
     background-color: rgb(217, 217, 217);
     width: 70%;
-    margin: 100px auto;
+    /* margin: 100px auto; */
+    position: relative;
+    top: 280px;
+    left: 205px;
     /* margin-top: 100px; */
     margin-bottom: 0;
     padding: 20px;
@@ -19,7 +22,7 @@
 /* Navbar */
 
 #nav-bar {
-    background-color: #d54f5f;
+    background-color: #d55457;
     height: 50px;
     display: flex;
     justify-content: flex-start;
@@ -160,8 +163,11 @@
 #details {
     display: flex;
     justify-content: space-evenly;
-    background-color: #d54f5f;
+    /* background-color: #d55457; */
+    background-color: white;
     height: 500px;
+    position: relative;
+    top: 181px;
 }
 
 #heading {
@@ -170,8 +176,12 @@
 }
 
 #heading h1 {
-    color: white;
+    color: #d55457; 
+    /* color: white; */
     font-size: 100px;
+    position: relative;
+    top: -134px;
+    left: 26px;
 }
 
 #png {
@@ -432,4 +442,8 @@
     padding: 20px;
     box-shadow: 0 2px 10px #ccc;
     border-radius: 10px;
+}
+
+#forBG {
+    background-image: url("https://st.redbus.in/Images/INDOFFER/FESTIVE200/Hero01.png");
 }
