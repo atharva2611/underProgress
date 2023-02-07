@@ -68,7 +68,7 @@ const App = () => {
           }
         />
         <Route path="BusDetails/BusCard" element={<BusCard show={show} />} />
-        <Route path="BusDetails/BusCard/ShowStatus" element={<ShowStatus show={show} />} />
+        <Route path="BusDetails/BusCard/ShowStatus" element={<ShowStatus/>} />
       </Routes>
     </div>
       </div>

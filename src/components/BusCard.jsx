@@ -18,7 +18,12 @@ export const BusCard = ({ show }) => {
     
     setShowPopup(true);
     // navigate("ShowStatus");
-    navigate("ShowStatus");
+    navigate("ShowStatus",{
+      state:{
+        selectedItems,
+        show: show,
+      }
+    });
   };
 
 
@@ -29,17 +34,17 @@ export const BusCard = ({ show }) => {
   //let seatArr = [];
   const handleClick = (e) => {
     if (!selectedItems.includes(e.target.id)) {
-      selectedItems.push(e.target.id);
+      // selectedItems.push(e.target.id);
+      setSelectedItems([...selectedItems, e.target.id]);
       document.getElementById(e.target.id).style.backgroundColor = "grey";
       //console.log(e.target.id);
     } else {
-      selectedItems.pop(e.target.id);
+      const temp = selectedItems.filter(selectedItems >= selectedItems != e.target.id);
+      setSelectedItems(temp);
       document.getElementById(e.target.id).style.backgroundColor = "rgb(219, 219, 219)"
         // "rgb(219, 219, 219)";
       //console.log(e.target.id);
     }
-    console.log(selectedItems);
-    console.log(selectedItems.length);
   };
 
 

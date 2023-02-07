@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 // import { BusCard } from "./BusCard";
 import "../styles/App.css";
 
-export const ShowStatus = ({show}) =>{
+export const ShowStatus = ({route}) =>{
 
-    console.log("this is props.", show);
-    const [selectedItems, setSelectedItems] = useState([]);
+    const location = useLocation();
+    const {state} = location;
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
+
+    // console.log("this is props.", show);
+    // const [selectedItems, setSelectedItems] = useState([]);
 
     // const count =  selectedItems;
     // setSelectedItems(count);
 
     const handleButtonClick = () => {
         setShowPopup(true);
-
     };
 
     // const handleClick = (e) => {
@@ -49,11 +51,11 @@ export const ShowStatus = ({show}) =>{
     return (
         <div id="cnfBooking">
 
-            <p>Number of Seats Booked: {selectedItems.length}</p>
+            <p>Number of Seats Booked: {state.selectedItems?.length}</p>
 
             <p>Price : Rs. {
-            selectedItems.length *
-             show.ticketPrice} </p>
+            state.selectedItems?.length *
+             state.show?.ticketPrice} </p>
             <div id="payment"><button >Proceed to Payment</button></div>
             <button onClick={handleClosePopup}>Close</button>
         </div>
