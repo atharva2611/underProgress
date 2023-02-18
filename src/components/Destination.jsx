@@ -7,13 +7,14 @@ export default function Destination(props) {
   };
   return (
     <div id="to">
-      <label htmlFor="to">To</label>
+      {/* <label htmlFor="to">To</label> */}
       <br />
       <input
         type="text"
         id="destination"
         onChange={handleChange}
         value={props.toMessage}
+        placeholder="To"
       />
     </div>
   );

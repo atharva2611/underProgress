@@ -17,7 +17,7 @@ export default function SearchBus({
   const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    fetchDate(from, to);
+    fetchDate(from, to,);
     console.log(from, to, date, setData, setData2);
     navigate("BusDetails");
     // let newData = [...data2]
@@ -36,7 +36,7 @@ export default function SearchBus({
         setData2(data);
         let newData = [...data];
         filter = data.filter(
-          (data) => data.source == from && data.destination == to
+          (data) => data.source === from && data.destination === to 
         );
         setFilter(filter);
       });
@@ -44,7 +44,7 @@ export default function SearchBus({
   return (
     <div className="search-bus">
       <button id="search-buses" onClick={handleClick}>
-        Search Bus
+        Search Buses
       </button>
     </div>
   );

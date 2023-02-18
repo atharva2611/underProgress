@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/App.css";
+import busFace from "../image-folder/symbole-de-bus-rouge.png"
 
 export default function Details() {
   return (
@@ -8,7 +9,7 @@ export default function Details() {
         <h1>Book Your Buses With RedBus</h1>
       </div>
       <div id="png">
-        <img src="symbole-de-bus-rouge.png" alt="" />
+        <img src={busFace} alt="" />
       </div>
     </div>
   );

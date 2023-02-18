@@ -60,12 +60,12 @@ export const BusCard = ({ show }) => {
               </div>
               <div id="bus-list-schedule">
                 <h3>
-                  Departure Time <br /> {show.departureTime}
+                  Arrival Time <br /> {show.arrivalTime}
                 </h3>
               </div>
               <div id="bus-list-schedule">
                 <h3>
-                  Arrival Time <br /> {show.arrivalTime}
+                  Departure Time <br /> {show.departureTime}
                 </h3>
               </div>
               <div id="bus-list-schedule">
@@ -100,7 +100,7 @@ export const BusCard = ({ show }) => {
                 </div>
                 <div id="mainTop">
                   <div id="7" onClick={handleClick} className="top1"></div>
-                  <div id="8" onClick={handleClick} className="top2"></div>
+                  <div id="8" onClick={handleClick} className="top2"></div>    
                 </div>
                 <div id="mainTop">
                   <div id="9" onClick={handleClick} className="top1"></div>

@@ -5,17 +5,17 @@
 }
 
 #main-duplicate {
-    background-color: rgb(217, 217, 217);
-    width: 70%;
+    /* background-color: rgb(217, 217, 217); */
+    width: 45%;
     /* margin: 100px auto; */
     position: relative;
-    top: 280px;
-    left: 205px;
+    top: 184px;
+    left: 270px;
     /* margin-top: 100px; */
     margin-bottom: 0;
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 
@@ -33,7 +33,9 @@
 }
 
 #navbar-left img {
-    width: 150px;
+    position: relative;
+    top: -5px;
+    width: 140px;
     padding-left: 70px;
     padding-top: 12px;
     color: white;
@@ -47,34 +49,53 @@
 }
 
 #navbar-right a {
-    padding-right: 90px;
+    /* padding-right: 90px; */
     color: white;
     position: relative;
     bottom: 13px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 350;
     text-decoration: none;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+#profile {
+    right: -320px;
+    filter: invert(100%);
+    position: relative;
+    top: -15px;
+    height: 33px;
+    width: 33px;
+}
+
+#profile:hover {
+    cursor: pointer;
+    filter: none;
+}
 
 /* Source */
 
 #from {
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #from label {
-    font-size: 600;
-    padding-bottom: 5px;
+    /* font-size: 600;
+    padding-bottom: 5px; */
 }
 
 #from input {
-    border: none;
+    /* border: rgb(217,217,217) block; */
+    width: 210px;
     outline: none;
     padding: 18px;
+    height: 10px;
+    font-size: 20px;
+    position: relative;
+    right: -25px;
 }
 
 
@@ -82,68 +103,114 @@
 
 #switching button {
     border-radius: 50%;
-    padding: 12px;
+    /* padding: 10px; */
     border: none;
     outline: none;
-    margin-top: 35px;
+    margin-top: 25px;
     background-color: #d54f5f;
     color: white;
     cursor: pointer;
+    position: relative;
+    left: 12px;
+    z-index: 1;
+    height: 25px;
+    width: 25px;
 }
 
 #icons {
-    font-size: 30px;
+    font-size: 17px;
 }
 
 
 /* Destination */
 
 #to {
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #to label {
-    font-size: 600;
-    padding-bottom: 5px;
+    /* font-size: 600;
+    padding-bottom: 5px; */
 }
 
 #to input {
-    border: none;
+    /* border: rgb(217,217,217) block; */
     outline: none;
+    width: 210px;
+    height: 10px;
     padding: 18px;
+    font-size: 20px;
 }
 
 
 /* Date Selection */
 
 #traveling-date {
-    padding: 18px;
+    /* padding: 18px; */
 }
 
 #traveling-date label {
-    font-size: 600;
-    padding-bottom: 5px;
+    /* font-size: 600;
+    padding-bottom: 5px; */
 }
 
 #traveling-date input {
-    border: none;
+    /* border: rgb(217,217,217) block; */
+    height: 40px;
+    width: 165px;
     outline: none;
-    padding: 18px;
+    padding: 18px 8px;
+    font-size: 20px;   
 }
 
 
 /* Search Button */
 
 .search-bus button {
-    padding: 20px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
     border: none;
+    border-radius: 2px;
     outline: none;
-    margin-top: 35px;
-    background-color: #d54f5f;
+    margin-top: 34px;
+    background-color: #d74f57;
     color: white;
     cursor: pointer;
+    height: 40px;
+    width: 130px;
+    bottom: 16px;
+    right: 0px;
+    position: relative;
+    /* border-radius: 20%; */
+    /* top: 0px; */
+}    
+
+.search-bus button:hover {
+    background-color: #e9555d;
 }
 
+#Reset-Buses {
+    padding: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    margin-top: 34px;
+    background-color: lightblue;
+    color: black;
+    cursor: pointer;
+    height: 40px;
+    width: 50px;
+    bottom: 16px;
+    right: 0px;
+    position: relative;
+}
+
+#Reset-Buses:hover {
+    background-color: lightskyblue;
+}
 
 /* image */
 
@@ -167,7 +234,7 @@
     background-color: white;
     height: 500px;
     position: relative;
-    top: 181px;
+    top: 215px;
 }
 
 #heading {
@@ -189,8 +256,9 @@
 }
 
 #png img {
-    padding-top: 150px;
-    padding-right: 80px;
+    /* padding-top: 150px;
+    padding-right: 80px; */
+    padding: 55px 10px;
     height: 400px;
     color: transparent;
 }
@@ -199,7 +267,7 @@
 /* bus card */
 
 #bus-details {
-    margin-top: 10px;
+    margin-top: 336px;
     padding-top: 30px;
     background-color: #d54f5f;
     height: auto;
@@ -213,7 +281,7 @@
     margin-bottom: 30px;
     width: 1000px;
     height: 80px;
-    background-color: white;
+    background-color: lightgray;
     display: flex;
 }
 
@@ -235,18 +303,25 @@
     height: 70%;
     padding: 7px;
     color: white;
+    cursor: pointer;
+}
+
+#schedule:hover {
+    background-color: #e9555d;
 }
 
 #bus-list {
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     cursor: pointer;
     margin-bottom: 10px;
 }
 
 #bus-list:hover {
-    background-color: aqua;
+    /* background-color: aqua; */
+    background-color: whitesmoke;
+    border: 2px solid black;
 }
 
 #bus-list-schedule {
@@ -277,7 +352,7 @@
 /* Bus Cards */
 
 #bus-cards {
-    margin-top: 10px;
+    margin-top: 335px;
     background-color: #d54f5f;
     height: auto;
     padding-top: 20px;
@@ -432,7 +507,7 @@
 }
 
 #cnfBooking {
-    position: fixed;
+    /* position: relative; */
     top: 50%;
     left: 50%;
     height: 500px;
@@ -446,4 +521,83 @@
 
 #forBG {
     background-image: url("https://st.redbus.in/Images/INDOFFER/FESTIVE200/Hero01.png");
+    background-position-x: center;
+    background-repeat-y: no-repeat
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+#home {
+    top: -10px;
+    right: -210px;
+}
+
+#help {
+    top: -10px;
+    right: -265px;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 320px;
+    max-height: 250px;
+    /* overflow: hidden; */
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+
+    /* for testing  */
+
+    right: -142px;
+    position: absolute;
+    top: -325px;
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3 {
+    font-weight: 500;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+
+}
+
+.sub-menu-link p {
+    color: black;
+    width: 100%;
+    /* background-color: #e5e5e5; */
+}
+
+.sub-menu-link span {
+    color: black;
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
 }

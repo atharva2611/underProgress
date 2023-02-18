@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const BusDetails = ({ filter, data, data2, setShow }) => {
+export const BusDetails = ({ filter, data, data2, setShow, sortByName, sortByDeparture, sortByArrival, sortByPrice}) => {
   // localStorage.setItem(
   //   "ticketPrice",
   //   filter.map((ticket) => ticket.ticketPrice)
   // );
   // console.log(filter.map((ticket) => ticket.ticketPrice));
+
+
   const navigate = useNavigate();
   return (
     <div id="bus-details">
@@ -15,16 +17,16 @@ export const BusDetails = ({ filter, data, data2, setShow }) => {
           <h1>SORT BY: </h1>
         </div>
         <div id="details-of-sorting">
-          <div id="schedule">
+          <div id="schedule" onClick={sortByName}>
             <h3>Name</h3>
           </div>
-          <div id="schedule">
-            <h3>Departure</h3>
-          </div>
-          <div id="schedule">
+          <div id="schedule" onClick={sortByArrival}>
             <h3>Arrival</h3>
           </div>
-          <div id="schedule">
+          <div id="schedule" onClick={sortByDeparture}>
+            <h3>Departure</h3>
+          </div>
+          <div id="schedule" onClick={sortByPrice}>
             <h3>Price</h3>
           </div>
         </div>
@@ -46,12 +48,12 @@ export const BusDetails = ({ filter, data, data2, setShow }) => {
               </div>
               <div id="bus-list-schedule">
                 <h3>
-                  Departure Time <br /> {user.departureTime}
+                  Arrival Time <br /> {user.arrivalTime}
                 </h3>
               </div>
               <div id="bus-list-schedule">
                 <h3>
-                  Arrival Time <br /> {user.arrivalTime}
+                  Departure Time <br /> {user.departureTime}
                 </h3>
               </div>
               <div id="bus-list-schedule">
