@@ -9,6 +9,17 @@ export const ShowStatus = ({route}) =>{
     const {state} = location;
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
+    const [showSeats, setShowSeats] = useState([]);
+
+    // const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+    // setShowSeats(reserved);
+
+    useEffect(() => {
+        const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+        if (reserved) {
+          setShowSeats(reserved);
+        }
+      }, []);
 
     // console.log("this is props.", show);
     // const [selectedItems, setSelectedItems] = useState([]);
@@ -38,7 +49,7 @@ export const ShowStatus = ({route}) =>{
 
     
     const handleClosePopup = () => {
-        // setShowPopup(false);
+        localStorage.removeItem("bookedSeats");
         navigate("/");
     };
 
@@ -51,9 +62,12 @@ export const ShowStatus = ({route}) =>{
     return (
         <div id="cnfBooking">
 
+            <p>Bus Name: {state.show?.busName}</p>
             <p>Number of Seats Booked: {state.selectedItems?.length}</p>
-
-            <p>Price : Rs. {
+            <p>The seats books are: {showSeats.map((seat) => (
+    <span className="seatNumber"> {seat} </span>
+  ))}</p>
+            <p>Price: Rs. {
             state.selectedItems?.length *
              state.show?.ticketPrice} </p>
             <div id="payment"><button >Proceed to Payment</button></div>
@@ -61,3 +75,4 @@ export const ShowStatus = ({route}) =>{
         </div>
     );
 }
+

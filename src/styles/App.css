@@ -112,7 +112,7 @@
     cursor: pointer;
     position: relative;
     left: 12px;
-    z-index: 1;
+    /* z-index: 1; */
     height: 25px;
     width: 25px;
 }
@@ -160,7 +160,7 @@
     width: 165px;
     outline: none;
     padding: 18px 8px;
-    font-size: 20px;   
+    font-size: 20px;
 }
 
 
@@ -184,7 +184,7 @@
     position: relative;
     /* border-radius: 20%; */
     /* top: 0px; */
-}    
+}
 
 .search-bus button:hover {
     background-color: #e9555d;
@@ -243,7 +243,7 @@
 }
 
 #heading h1 {
-    color: #d55457; 
+    color: #d55457;
     /* color: white; */
     font-size: 100px;
     position: relative;
@@ -414,6 +414,7 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 .top1:hover {
@@ -433,6 +434,7 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 .top2:hover {
@@ -467,6 +469,8 @@
     width: 100%;
     height: 27px;
     cursor: pointer;
+    text-align: center;
+
 }
 
 .bottom1:hover {
@@ -507,11 +511,11 @@
 }
 
 #cnfBooking {
-    /* position: relative; */
-    top: 50%;
+    position: relative;
+    top: 385px;
     left: 50%;
-    height: 500px;
-    width: 1000px;
+    height: auto;
+    width: auto;
     transform: translate(-50%, -50%);
     background: white;
     padding: 20px;
@@ -522,9 +526,11 @@
 #forBG {
     background-image: url("https://st.redbus.in/Images/INDOFFER/FESTIVE200/Hero01.png");
     background-position-x: center;
-    background-repeat-y: no-repeat
+    background-repeat-y: no-repeat;
     /* background-repeat: no-repeat; */
     /* background-size: cover; */
+    height: 450px;
+
 }
 
 #home {
@@ -558,9 +564,9 @@
 
     /* for testing  */
 
-    right: -142px;
+    right: -144px;
     position: absolute;
-    top: -325px;
+    top: -580px;
 }
 
 
@@ -600,4 +606,64 @@
 
 .sub-menu-link:hover p {
     font-weight: 600;
+}
+
+.signin-login-form {
+    background: lightblue;
+    border: 5px solid white;
+    border-radius: 7px;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    top: -110px;
+    left: 300px;
+    height: 510px;
+    width: 715px;
+}
+
+#close-btn {
+    /* height: 15px; */
+    /* float: right; */
+    /* width: 15px; */
+    font-size: 30px;
+    font-weight: bolder;
+    position: relative;
+    left: 680px;
+    cursor: pointer;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+}
+
+#child1 {
+    margin: 10px;
+}
+
+#child2 {
+    margin: 10px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#overlay.active {
+    display: block;
+}
+
+#show-user-name {
+    position: relative;
+    color: white;
+    left: 329px;
+    top: -9px;
+    text-decoration: underline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

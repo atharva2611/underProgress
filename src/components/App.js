@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import firebase  from 'firebase';
 import "../styles/App.css";
 import Swap from "./Swap";
 import Source from "./Source";
@@ -13,7 +14,8 @@ import { ShowStatus } from "./ShowStatus";
 import { Routes, Route } from "react-router-dom";
 import ResetBus from "./ResetBus";
 import { Login} from "./Login";
-import { Signin } from "./Signin";
+import { SignUp } from "./SignUp";
+// import xyz from "../image-folder/newUserImage.png";
 
 
 const App = () => {
@@ -27,17 +29,22 @@ const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [currentForm, setCurrentForm] = useState('login');
   const [tempConst, setTempConst] = useState([]);
+  const [layOver, setLayOver] = useState(1); // id: overlay
+  const [count, setCount] = useState(0);
+
+  // const overlay = document.getElementById("overlay");
+  // overlay.classList.remove("active");
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
 
-  let subMenu = document.getElementById("subMenu");
+  // let subMenu = document.getElementById("subMenu");
   
-  const toggleMenu = function(){
-    subMenu.classList.toggle("open-menu");
-    console.log("Working");
-  }
+  // function toggleMenu(){
+  //   subMenu.classList.toggle("open-menu");
+  //   console.log("Working");
+  // }
 
   function compareName(a, b) {
     if (a.busName < b.busName) {
@@ -46,8 +53,8 @@ const App = () => {
     if (a.busName > b.busName) {
       return 1;
     }
-    if(a.busName === b.busName)
-      alert("Bus name is same... Cannot be sorted further.");
+    // if(a.busName === b.busName)
+    //   alert("Bus name is same... Cannot be sorted further.");
     return 0;
   }
 
@@ -58,8 +65,8 @@ const App = () => {
     if (a.arrivalTime > b.arrivalTime) {
       return 1;
     }
-    if(a.arrivalTime === b.arrivalTime)
-      alert("Same Arrival Time... Cannot be sorted further.");
+    // if(a.arrivalTime === b.arrivalTime)
+    //   alert("Same Arrival Time... Cannot be sorted further.");
     return 0;
   }
   function compareDepartureTime(a, b) {
@@ -69,8 +76,8 @@ const App = () => {
     if (a.departureTime > b.departureTime) {
       return 1;
     }
-    if(a.departureTime === b.departureTime)
-      alert("Same Departure time... Cannot be sorted further.");
+    // if(a.departureTime === b.departureTime)
+    //   alert("Same Departure time... Cannot be sorted further.");
     return 0;
   }
   function compareTicketPrice(a, b) {
@@ -80,8 +87,8 @@ const App = () => {
     if (a.ticketPrice > b.ticketPrice) {
       return 1;
     }
-    if(a.ticketPrice === b.ticketPrice)
-      alert("Ticket Price is same... Cannot be sorted further.");
+    // if(a.ticketPrice === b.ticketPrice)
+      // alert("Ticket Price is same... Cannot be sorted further.");
     return 0;
   }
     
@@ -91,7 +98,7 @@ const App = () => {
     // 3. Store the result in some constant
     // 4. transfer result into filter state 
 
-      var tempName = [...data];
+      const tempName = [...data];
       tempName.sort(compareName);
       console.log(tempName)
       setFilter(tempName);
@@ -100,21 +107,21 @@ const App = () => {
     }
     
     const sortByArrival = () => {
-      var tempArrival = [...data];
+      const tempArrival = [...data];
       tempArrival.sort(compareArrivalTime);
       console.log(tempArrival)
       setFilter(tempArrival);
     }
 
     const sortByDeparture = () => {
-      var tempDeparture = [...data];
+      const tempDeparture = [...data];
       tempDeparture.sort(compareDepartureTime);
       console.log(tempDeparture)
       setFilter(tempDeparture);
     }
 
     const sortByPrice = () => {
-      var tempPrice = [...data];
+      const tempPrice = [...data];
       tempPrice.sort(compareTicketPrice);
       console.log(tempPrice)
       setFilter(tempPrice);
@@ -124,7 +131,12 @@ const App = () => {
 
   return (
     <div id="main">
-      <Nav />
+      <Nav 
+        layOver={layOver}
+        setLayOver={setLayOver}
+        count={count}
+        setCount={setCount}
+      />
       <div id="forBG">
 
       <div id="main-duplicate">
@@ -185,12 +197,31 @@ const App = () => {
         />
         <Route 
            path="Login" 
-           element={<Login/>}
+           element={
+            <Login
+              layOver={layOver}
+              setLayOver={setLayOver}
+              count={count}
+              setCount={setCount}
+           />}
+        />
+        <Route 
+           path="SignUp" 
+           element={
+            <SignUp
+              layOver={layOver}
+              setLayOver={setLayOver}
+           />}
         />
         <Route path="BusDetails/BusCard" element={<BusCard show={show} />} />
         <Route path="BusDetails/BusCard/ShowStatus" element={<ShowStatus/>} />
       </Routes>
     </div>
+    {/* <div id="overlay"></div> */}
+
+    {/* layOver === 2?  */}
+    <div id="overlay"></div> 
+    {/* : ""; */}
       </div>
   );
 };

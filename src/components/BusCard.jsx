@@ -8,10 +8,27 @@ export const BusCard = ({ show }) => {
   //   localStorage.getItem("ticketPrice")
   // );
 
-  let count = 0;
+  const [count, setCount] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+    if (items) {
+      setSelectedItems(items);
+    }
+  }, []);
+  // const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+  // setSelectedItems(reserved);
+  
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+    if (items) {
+      setSelectedItems(items);
+    }
+  }, [count]);
+  
   // const count = selectedItems.length;
 
   const handleButtonClick = () => {
@@ -35,12 +52,22 @@ export const BusCard = ({ show }) => {
   const handleClick = (e) => {
     if (!selectedItems.includes(e.target.id)) {
       // selectedItems.push(e.target.id);
-      setSelectedItems([...selectedItems, e.target.id]);
+      const storeSeatNo = [...selectedItems, e.target.id];
+      setSelectedItems(storeSeatNo);
+      localStorage.setItem("bookedSeats", JSON.stringify(storeSeatNo));
+      setCount(1);
+      const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+      console.log("selected",reserved);
       document.getElementById(e.target.id).style.backgroundColor = "grey";
       //console.log(e.target.id);
     } else {
-      const temp = selectedItems.filter(selectedItems >= selectedItems != e.target.id);
+      const temp = selectedItems.filter(selectedItems => selectedItems != e.target.id);
+      // const temp = selectedItems.filter((seatID) => seatID !== e.target.id);
       setSelectedItems(temp);
+      localStorage.setItem("bookedSeats", JSON.stringify(temp));
+      setCount(2);
+      const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+      console.log("de-selected",reserved);
       document.getElementById(e.target.id).style.backgroundColor = "rgb(219, 219, 219)"
         // "rgb(219, 219, 219)";
       //console.log(e.target.id);
@@ -87,24 +114,24 @@ export const BusCard = ({ show }) => {
                 <h4>Lower Deck</h4>
               <div id="top">
                 <div id="mainTop">
-                  <div id="1" onClick={handleClick} className="top1"></div>
-                  <div id="2" onClick={handleClick} className="top2"></div>
+                  <div id="1" onClick={handleClick} className="top1">1</div>
+                  <div id="2" onClick={handleClick} className="top2">2</div>
                 </div>
                 <div id="mainTop">
-                  <div id="3" onClick={handleClick} className="top1"></div>
-                  <div id="4" onClick={handleClick} className="top2"></div>
+                  <div id="3" onClick={handleClick} className="top1">3</div>
+                  <div id="4" onClick={handleClick} className="top2">4</div>
                 </div>
                 <div id="mainTop">
-                  <div id="5" onClick={handleClick} className="top1"></div>
-                  <div id="6" onClick={handleClick} className="top2"></div>
+                  <div id="5" onClick={handleClick} className="top1">5</div>
+                  <div id="6" onClick={handleClick} className="top2">6</div>
                 </div>
                 <div id="mainTop">
-                  <div id="7" onClick={handleClick} className="top1"></div>
-                  <div id="8" onClick={handleClick} className="top2"></div>    
+                  <div id="7" onClick={handleClick} className="top1">7</div>
+                  <div id="8" onClick={handleClick} className="top2">8</div>    
                 </div>
                 <div id="mainTop">
-                  <div id="9" onClick={handleClick} className="top1"></div>
-                  <div id="10" onClick={handleClick} className="top2"></div>
+                  <div id="9" onClick={handleClick} className="top1">9</div>
+                  <div id="10" onClick={handleClick} className="top2">10</div>
                 </div>
                 {/* <div id="mainTop">
                   <div id="top11" onClick={handleClick} className="top1"></div>
@@ -125,35 +152,35 @@ export const BusCard = ({ show }) => {
                     id="11"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >11</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="12"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >12</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="13"
                     onClick={handleClick}
                     className="bottom1"
-                    ></div>
+                    >13</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="14"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >14</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="15"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >15</div>
                 </div>
                 {/* <div id="mainBottom">
                   <div
@@ -182,24 +209,24 @@ export const BusCard = ({ show }) => {
                     <h4>Upper Deck</h4>
               <div id="top">
                 <div id="mainTop">
-                  <div id="16" onClick={handleClick} className="top1"></div>
-                  <div id="17" onClick={handleClick} className="top2"></div>
+                  <div id="16" onClick={handleClick} className="top1">16</div>
+                  <div id="17" onClick={handleClick} className="top2">17</div>
                 </div>
                 <div id="mainTop">
-                  <div id="18" onClick={handleClick} className="top1"></div>
-                  <div id="19" onClick={handleClick} className="top2"></div>
+                  <div id="18" onClick={handleClick} className="top1">18</div>
+                  <div id="19" onClick={handleClick} className="top2">19</div>
                 </div>
                 <div id="mainTop">
-                  <div id="20" onClick={handleClick} className="top1"></div>
-                  <div id="21" onClick={handleClick} className="top2"></div>
+                  <div id="20" onClick={handleClick} className="top1">20</div>
+                  <div id="21" onClick={handleClick} className="top2">21</div>
                 </div>
                 <div id="mainTop">
-                  <div id="22" onClick={handleClick} className="top1"></div>
-                  <div id="23" onClick={handleClick} className="top2"></div>
+                  <div id="22" onClick={handleClick} className="top1">22</div>
+                  <div id="23" onClick={handleClick} className="top2">23</div>
                 </div>
                 <div id="mainTop">
-                  <div id="24" onClick={handleClick} className="top1"></div>
-                  <div id="25" onClick={handleClick} className="top2"></div>
+                  <div id="24" onClick={handleClick} className="top1">24</div>
+                  <div id="25" onClick={handleClick} className="top2">25</div>
                 </div>
                 {/* <div id="mainTop">
                   <div id="top11" onClick={handleClick} className="top1"></div>
@@ -220,35 +247,35 @@ export const BusCard = ({ show }) => {
                     id="26"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >26</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="27"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >27</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="28"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >28</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="29"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >29</div>
                 </div>
                 <div id="mainBottom">
                   <div
                     id="30"
                     onClick={handleClick}
                     className="bottom1"
-                  ></div>
+                  >30</div>
                 </div>
                 {/* <div id="mainBottom">
                   <div
