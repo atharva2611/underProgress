@@ -5,11 +5,7 @@ import leftImg from "../image-folder/left-panel-img.jpeg"
 
 
 export const Login = (props) => {
-    // const [email, setEmail] = useState('');
-    // const [pass, setPass] = useState('');
-    // const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
-    // const [layOver, setLayOver] = useState(2);
 
     const closeOverlay = () => {
         if (props.layOver === 2) {
@@ -27,15 +23,11 @@ export const Login = (props) => {
     const [data, setData] = useState([]);
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
-        // console.log(email);
     }
 
     const getdata = (e) => {
-        // console.log(e.target.value);
 
         const { value, name } = e.target;
-        // console.log(value,name);
 
         setInpval(() => {
             return {
@@ -73,7 +65,6 @@ export const Login = (props) => {
                 } else {
                     console.log("user login succesfully");
                     localStorage.setItem("forStateChangeData", JSON.stringify(5));
-                    // props.setCount(2);
                     if(props.count === 0){
                         props.setCount(1);
                     } else {
@@ -82,8 +73,6 @@ export const Login = (props) => {
                     navigate("/");
 
                     localStorage.setItem("user_login", JSON.stringify(userlogin));
-
-                    //history("/details");
                 }
             }
         }
@@ -99,31 +88,19 @@ export const Login = (props) => {
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email: </label>
                     <input 
-                        //value={email} 
                         onChange={getdata}
                         type="email" placeholder="Enter your email" id="email" name="email" /><br />
                     <label htmlFor="password">Password: </label>
                     <input 
-                        // value={pass} 
                         onChange={getdata}
                         type="password" placeholder="Enter your password" id="password" name="password" /><br />
                     <button onClick={addData} type="submit">Log In</button>
                 </form>
                 <p>Don't have an account?
-                    {/* <button onClick={() => props.onFormSwitch('signin')}>Sign Up</button> */}
                     <button><NavLink to="/SignUp">Sign Up</NavLink></button>
-                    {/* <span>
-                        <NavLink to="/SignUp">Sign Up</NavLink>
-                    </span> */}
                 </p>
             </div>
         </div>
     )
 }
 
-
-{/* <div className="user-account">
-        {
-          currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Signin onFormSwitch={toggleForm} />
-        }
-      </div> */}

@@ -4,9 +4,6 @@ import { useNavigate } from "react-router-dom";
 import leftImg from "../image-folder/left-panel-img.jpeg"
 
 export const SignUp = (props) => {
-    // const [email, setEmail] = useState('');
-    // const [pass, setPass] = useState('');
-    // const [name, setName] = useState('');
     const [data, setData] = useState([]);
     const navigate = useNavigate();
 
@@ -17,10 +14,8 @@ export const SignUp = (props) => {
     });
 
     const getdata = (e) => {
-        // console.log(e.target.value);
 
         const { value, name } = e.target;
-        // console.log(value,name);
 
         setInpval(() => {
             return {
@@ -30,15 +25,9 @@ export const SignUp = (props) => {
         });
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(email);
-    // }
-
     const closeOverlay = () => {
         if (props.layOver === 2) {
             props.setLayOver(1);
-            console.log(props.layOver, "This is called from Login");
         }
         navigate("/");
     }
@@ -59,7 +48,6 @@ export const SignUp = (props) => {
         } else if (password.length < 5) {
             alert("password length is short");
         } else {
-            console.log("data added successfully");
             localStorage.setItem("userData", JSON.stringify([...data, inpval]));
         }
     };
@@ -72,21 +60,16 @@ export const SignUp = (props) => {
             </div>
             <div id="main">
                 <div id="child1">
-                    <form 
-                    // onSubmit={handleSubmit}
-                    >
+                    <form>
                         <label htmlFor="name">Name: </label>
                         <input
-                            // value={name} 
                             onChange={getdata} type="name" placeholder="Enter your name" id="name" name="name" /><br />
                         <label htmlFor="Email">Email: </label>
                         <input
-                            // value={email} 
                             onChange={getdata} type="email"
                             placeholder="Enter your email" id="email" name="email" /><br />
                         <label htmlFor="password">Password: </label>
                         <input
-                            // value={pass} 
                             onChange={getdata} type="password"
                             placeholder="Enter your password" id="password" name="password" /><br /><br />
                         <button onClick={addData} type="submit">Sign Up</button><br />
@@ -94,9 +77,7 @@ export const SignUp = (props) => {
                 </div>
                 <div id="child2">
                     <p>Already have an account?
-                        {/* <button onClick={() => props.onFormSwitch('login')}>Log in</button> */}
                         <button><NavLink to="/Login">Log in</NavLink></button>
-
                     </p>
                 </div>
             </div>

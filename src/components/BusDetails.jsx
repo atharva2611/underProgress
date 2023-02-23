@@ -1,13 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const BusDetails = ({ filter, data, data2, setShow, sortByName, sortByDeparture, sortByArrival, sortByPrice}) => {
-  // localStorage.setItem(
-  //   "ticketPrice",
-  //   filter.map((ticket) => ticket.ticketPrice)
-  // );
-  // console.log(filter.map((ticket) => ticket.ticketPrice));
-
+export const BusDetails = ({ filter, setShow, sortByName, sortByDeparture, sortByArrival, sortByPrice }) => {
 
   const navigate = useNavigate();
   return (

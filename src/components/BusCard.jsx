@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShowStatus } from "./ShowStatus";
-
 
 export const BusCard = ({ show }) => {
-  // const [ticketPrice, setTicketPrice] = useState(
-  //   localStorage.getItem("ticketPrice")
-  // );
 
   const [count, setCount] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
@@ -19,58 +14,43 @@ export const BusCard = ({ show }) => {
       setSelectedItems(items);
     }
   }, []);
-  // const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
-  // setSelectedItems(reserved);
-  
+
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("bookedSeats")) || [];
     if (items) {
       setSelectedItems(items);
     }
   }, [count]);
-  
-  // const count = selectedItems.length;
+
 
   const handleButtonClick = () => {
-    
+
     setShowPopup(true);
-    // navigate("ShowStatus");
-    navigate("ShowStatus",{
-      state:{
+    navigate("ShowStatus", {
+      state: {
         selectedItems,
         show: show,
       }
     });
   };
 
-
-  // const handleClosePopup = () => {
-  //   setShowPopup(false);
-  // };
-
-  //let seatArr = [];
   const handleClick = (e) => {
     if (!selectedItems.includes(e.target.id)) {
-      // selectedItems.push(e.target.id);
       const storeSeatNo = [...selectedItems, e.target.id];
       setSelectedItems(storeSeatNo);
       localStorage.setItem("bookedSeats", JSON.stringify(storeSeatNo));
       setCount(1);
       const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
-      console.log("selected",reserved);
+      console.log("selected", reserved);
       document.getElementById(e.target.id).style.backgroundColor = "grey";
-      //console.log(e.target.id);
     } else {
       const temp = selectedItems.filter(selectedItems => selectedItems != e.target.id);
-      // const temp = selectedItems.filter((seatID) => seatID !== e.target.id);
       setSelectedItems(temp);
       localStorage.setItem("bookedSeats", JSON.stringify(temp));
       setCount(2);
       const reserved = JSON.parse(localStorage.getItem("bookedSeats")) || [];
-      console.log("de-selected",reserved);
+      console.log("de-selected", reserved);
       document.getElementById(e.target.id).style.backgroundColor = "rgb(219, 219, 219)"
-        // "rgb(219, 219, 219)";
-      //console.log(e.target.id);
     }
   };
 
@@ -111,7 +91,7 @@ export const BusCard = ({ show }) => {
               />
             </div>
             <div id="bus-seat-select">
-                <h4>Lower Deck</h4>
+              <h4>Lower Deck</h4>
               <div id="top">
                 <div id="mainTop">
                   <div id="1" onClick={handleClick} className="top1">1</div>
@@ -127,24 +107,12 @@ export const BusCard = ({ show }) => {
                 </div>
                 <div id="mainTop">
                   <div id="7" onClick={handleClick} className="top1">7</div>
-                  <div id="8" onClick={handleClick} className="top2">8</div>    
+                  <div id="8" onClick={handleClick} className="top2">8</div>
                 </div>
                 <div id="mainTop">
                   <div id="9" onClick={handleClick} className="top1">9</div>
                   <div id="10" onClick={handleClick} className="top2">10</div>
                 </div>
-                {/* <div id="mainTop">
-                  <div id="top11" onClick={handleClick} className="top1"></div>
-                  <div id="top12" onClick={handleClick} className="top2"></div>
-                </div>
-                <div id="mainTop">
-                  <div id="top13" onClick={handleClick} className="top1"></div>
-                  <div id="top14" onClick={handleClick} className="top2"></div>
-                </div>
-                <div id="mainTop">
-                  <div id="top15" onClick={handleClick} className="top1"></div>
-                  <div id="top16" onClick={handleClick} className="top2"></div>
-                </div> */}
               </div>
               <div id="bottom">
                 <div id="mainBottom">
@@ -166,7 +134,7 @@ export const BusCard = ({ show }) => {
                     id="13"
                     onClick={handleClick}
                     className="bottom1"
-                    >13</div>
+                  >13</div>
                 </div>
                 <div id="mainBottom">
                   <div
@@ -182,31 +150,10 @@ export const BusCard = ({ show }) => {
                     className="bottom1"
                   >15</div>
                 </div>
-                {/* <div id="mainBottom">
-                  <div
-                    id="bottom6"
-                    onClick={handleClick}
-                    className="bottom1"
-                  ></div>
-                </div>
-                <div id="mainBottom">
-                  <div
-                    id="bottom7"
-                    onClick={handleClick}
-                    className="bottom1"
-                    ></div>
-                </div>
-                <div id="mainBottom">
-                  <div
-                  id="bottom8"
-                    onClick={handleClick}
-                    className="bottom1"
-                  ></div>
-                </div> */}
               </div>
             </div>
             <div id="bus-seat-select">
-                    <h4>Upper Deck</h4>
+              <h4>Upper Deck</h4>
               <div id="top">
                 <div id="mainTop">
                   <div id="16" onClick={handleClick} className="top1">16</div>
@@ -228,18 +175,6 @@ export const BusCard = ({ show }) => {
                   <div id="24" onClick={handleClick} className="top1">24</div>
                   <div id="25" onClick={handleClick} className="top2">25</div>
                 </div>
-                {/* <div id="mainTop">
-                  <div id="top11" onClick={handleClick} className="top1"></div>
-                  <div id="top12" onClick={handleClick} className="top2"></div>
-                </div>
-                <div id="mainTop">
-                  <div id="top13" onClick={handleClick} className="top1"></div>
-                  <div id="top14" onClick={handleClick} className="top2"></div>
-                </div>
-                <div id="mainTop">
-                  <div id="top15" onClick={handleClick} className="top1"></div>
-                  <div id="top16" onClick={handleClick} className="top2"></div>
-                </div> */}
               </div>
               <div id="bottom">
                 <div id="mainBottom">
@@ -277,57 +212,12 @@ export const BusCard = ({ show }) => {
                     className="bottom1"
                   >30</div>
                 </div>
-                {/* <div id="mainBottom">
-                  <div
-                    id="bottom6"
-                    onClick={handleClick}
-                    className="bottom1"
-                  ></div>
-                </div>
-                <div id="mainBottom">
-                  <div
-                    id="bottom7"
-                    onClick={handleClick}
-                    className="bottom1"
-                  ></div>
-                </div>
-                <div id="mainBottom">
-                  <div
-                    id="bottom8"
-                    onClick={handleClick}
-                    className="bottom1"
-                  ></div>
-                </div> */}
               </div>
             </div>
             <div id="book-ticket">
-             
+
 
               <button onClick={handleButtonClick}>Book Ticket </button>
-              {/* {showPopup && (
-                <div style={{
-                  position: "fixed",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  background: "white",
-                  padding: "20px",
-                  boxShadow: "0 2px 10px #ccc",
-                  borderRadius: "10px"}}>
-
-                  <p>Number of Seats Booked: {selectedItems.length}</p>
-                  
-                  <p>Price : Rs. {selectedItems.length*show.ticketPrice} </p>
-                  <div id="payment"><button >Proceed to Payment</button></div>
-                  <button onClick={handleClosePopup}>Close</button>
-                </div>
-               )}  */}
-          {/* <div>
-            <ShowStatus
-                count={selectedItems}
-            />
-
-          </div> */}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/App.css";
 import busFace from "../image-folder/symbole-de-bus-rouge.png"
+import "../styles/App.css";
 
 export default function Details() {
   return (

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "../styles/App.css";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/App.css";
 
 export default function SearchBus({
   from,

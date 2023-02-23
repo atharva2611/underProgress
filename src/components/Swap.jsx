@@ -7,10 +7,7 @@ export default function Swap({ source, destination, setSource, setToSource }) {
   const handleSwap = () => {
     const temp = source;
     setSource(destination);
-    // source = destination;
     setToSource(temp);
-    // destination = temp;
-    console.log(source, destination);
   };
 
   return (
